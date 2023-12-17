@@ -33,6 +33,6 @@ In GitHub, you can integrate it in your `*.yml` file with:
 ```yaml
     - name: Author and E-Mail check
       run: |
-        python devtools/am-c/amc.py -p whitelist.amc
+        python anypath/am-c/amc.py -p whitelist.amc
 ```
 
