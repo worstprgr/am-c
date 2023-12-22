@@ -20,8 +20,23 @@ jobs:
       with:
         python-version: "3.11"
 
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyflakes
+        pip install flake8
+
     - name: Author and E-Mail check
       env:
         WHITELIST_AMC: ${{ secrets.WHITELIST_AMC }}
       run: |
         python amc.py -s
+
+    - name: SCA with pyflakes
+      run: |
+         pyflakes .
+
+    - name: Lint with flake8
+      run: |
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics

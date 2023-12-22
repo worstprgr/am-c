@@ -147,7 +147,7 @@ class Main:
     def cmp(self, from_git: str, from_whitelist: list) -> None or Exception:
         if not (from_git in from_whitelist):
             if self.secret_mode:
-                print(f'[ERROR]: Author(s) and E-Mail addresses not found in whitelist', file=sys.stderr)
+                print('[ERROR]: Author(s) and E-Mail addresses not found in whitelist', file=sys.stderr)
             else:
                 print(f'[ERROR]: "{from_git}" not found in whitelist', file=sys.stderr)
             sys.exit(1)
